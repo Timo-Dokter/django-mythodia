@@ -28,8 +28,9 @@ INSTALLED_APPS = [
     # 3rd parties
     "tailwind",
     "corsheaders",
-    # "django_browser_reload",
     # Our Apps
+    "mythodia.modules.accounts",
+    "mythodia.modules.core",
     "mythodia.modules.theme",
 ]
 
@@ -172,7 +173,7 @@ MOLLIE_API_KEY = config("MOLLIE_API_KEY", default="test_HN8rB9AutruDdtCGMK4NTJ78
 
 SIMPLE_ENVIRONMENT = config("SIMPLE_ENVIRONMENT", default="dev")
 
-# AUTH_USER_MODEL = "accounts.Account"
+AUTH_USER_MODEL = "accounts.Account"
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
