@@ -38,8 +38,11 @@ class Account(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "email"
 
     class Meta:
-        verbose_name = _("User")
-        verbose_name_plural = _("Users")
+        verbose_name = _("Account")
+        verbose_name_plural = _("Accounts")
+
+    def __str__(self):
+        return self.get_full_name()
 
     def clean(self):
         super().clean()
