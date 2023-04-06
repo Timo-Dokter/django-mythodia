@@ -1,0 +1,71 @@
+{% load static tailwind_tags %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>
+      {% block page_title %}
+        Mythodia
+      {% endblock page_title %}
+    </title>
+    <link rel="icon" href="{% static 'images/dnd_favicon.png' %}" />
+    {% tailwind_css %}
+  </head>
+  <body>
+    {% block image-modal %}
+      <div id="modal" class="fixed inset-0 z-50 hidden">
+        <div class="flex justify-center items-center w-full h-full bg-gray-900 bg-opacity-50">
+          <img id="modal-image"
+               class="block-enlarge max-w-full max-h-full"
+               src=""
+               alt=""/>
+        </div>
+      </div>
+    {% endblock image-modal %}
+    {% block background-image %}
+      <div class="fixed min-h-screen w-full bg-the-inner-planes-map bg-center bg-cover blur-sm z-[-10]"></div>
+    {% endblock background-image %}
+    <div class="min-h-screen bg-transparent leading-normal">
+      <header class="relative bg-dark-parchment">
+        {% block header %}
+          {% include "components/core/header.html" %}
+        {% endblock header %}
+      </header>
+      <main class="max-w-6xl min-h-120 p-4 m-auto md:my-4 h-full md:h-auto bg-light-parchment bg-opacity-90">
+        <h1 class="text-3xl md:text-4xl font-medium mb-2">
+          {% block page_heading %}
+            The universe of Mythodia
+          {% endblock page_heading %}
+        </h1>
+        {% block content %}
+          <img src="{% static 'images/dnd_symbol.png' %}"
+               alt="dnd symbol"
+               width="120"
+               height="67.5"
+               class=""/>
+        {% endblock content %}
+      </main>
+      {% block footer %}
+      {% endblock footer %}
+    </div>
+  </body>
+  <script lang="text/javascript">
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modal-image');
+
+    document.querySelectorAll('img').forEach(img => {
+        if (img.classList.contains("block-enlarge")) {
+            return
+        }
+        img.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            modalImage.src = img.src;
+        });
+    });
+
+    modal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+  </script>
+</html>

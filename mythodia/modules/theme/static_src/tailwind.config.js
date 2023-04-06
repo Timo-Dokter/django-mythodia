@@ -18,7 +18,7 @@ module.exports = {
      * Main templates directory of the project (BASE_DIR/templates).
      * Adjust the following line to match your project structure.
      */
-    "../../templates/**/*.html",
+    "../../../templates/**/*.html",
 
     /*
      * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
@@ -31,9 +31,9 @@ module.exports = {
      * patterns match your project structure.
      */
     /* JS 1: Ignore any JavaScript in node_modules folder. */
-    // '!../../**/node_modules',
+    "!../../**/node_modules",
     /* JS 2: Process all JavaScript files in the project. */
-    // '../../**/*.js',
+    "../../**/*.js",
 
     /**
      * Python: If you use Tailwind CSS classes in Python, uncomment the following line
@@ -44,8 +44,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "mythodia-map": "url(/images/mythodia-map.jpeg)",
-        "the-inner-planes-map": "url(/images/the-inner-planes.png)",
+        "mythodia-map": "url(../../images/mythodia-map.jpeg)",
+        "the-inner-planes-map": "url(../../images/the-inner-planes.png)",
       },
       colors: {
         "light-parchment": "#FFFCF2",

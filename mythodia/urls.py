@@ -4,6 +4,7 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", include("mythodia.modules.core.urls")),
 ]
 
 if settings.DEBUG:

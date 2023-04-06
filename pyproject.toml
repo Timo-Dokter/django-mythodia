@@ -1,7 +1,9 @@
 [tool.djlint]
+# blank_line_after_tag="load,endblock,extends,include"
+# blank_line_before_tag="block,load,extends,include"
 format_css=true
 format_js=true
-ignore="H020,H030,H031"
+ignore="H006,H020,H030,H031"
 indent=2
 use_gitignore=true
 
