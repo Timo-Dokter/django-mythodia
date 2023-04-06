@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # I18N AND L10N SETTINGS
 # ==============================================================================
 
-LANGUAGE_CODE = config("LANGUAGE_CODE", default="nl")
+LANGUAGE_CODE = config("LANGUAGE_CODE", default="en")
 
 TIME_ZONE = config("TIME_ZONE", default="CET")
 

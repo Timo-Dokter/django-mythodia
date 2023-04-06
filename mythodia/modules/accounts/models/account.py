@@ -32,7 +32,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
     date_joined = models.DateTimeField(_("Date joined"), default=timezone.now)
 
-    objects = AccountManager
+    objects = AccountManager()
 
     EMAIL_FIELD = "email"
     USERNAME_FIELD = "email"
