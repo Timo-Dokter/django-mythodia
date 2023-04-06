@@ -1,0 +1,22 @@
+:root {
+  --primary: #f4d2a2;
+  --secondary: #eac18b;
+  --accent: #000;
+  --hairline-color: #f4d2a2;
+  --link-fg: #4b5563;
+  --link-hover-color: #1f2937;
+
+  --header-color: #1f2937;
+  --header-link-color: #111827;
+
+  --body-bg: #fffcf2;
+}
+
+#user-tools a,
+#logout-form button {
+  border-bottom: 1px solid rgba(55, 65, 81, 0.25);
+}
+
+#content-related {
+  border: 1px solid #f4d2a2;
+}
