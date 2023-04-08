@@ -1,0 +1,15 @@
+{% load static %}
+<section class="flex gap-2 flex-col md:flex-row">
+    <div className="flex-1 text-lg leading-5">
+        The campaign is played by the following characters:
+        <ul className="flex flex-col gap-1 list-disc list-inside">
+            {% for character in characters %}
+                <li>
+                    <a href="{% url 'characters:detail' name=character.full_name %}"
+                       className="underline font-bold">{{ character.full_name }}</a>
+                    , {{ character.race_class }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

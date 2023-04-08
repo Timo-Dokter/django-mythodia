@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "mythodia.modules.accounts",
     "mythodia.modules.core",
     "mythodia.modules.theme",
+    "mythodia.modules.characters",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

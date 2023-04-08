@@ -41,16 +41,14 @@ class Account(AbstractBaseUser, PermissionsMixin):
         verbose_name = _("Account")
         verbose_name_plural = _("Accounts")
 
+    @property
+    def full_name(self):
+        full_name = f"{self.first_name} {self.last_name}"
+        return full_name.strip()
+
     def __str__(self):
-        return self.get_full_name()
+        return self.full_name
 
     def clean(self):
         super().clean()
         self.email = self.__class__.objects.normalize_email(self.email)
-
-    def get_full_name(self):
-        full_name = f"{self.first_name} {self.last_name}"
-        return full_name.strip()
-
-    def get_short_name(self):
-        return self.first_name
