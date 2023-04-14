@@ -744,6 +744,10 @@ select {
   z-index: -10;
 }
 
+.z-\[10000\] {
+  z-index: 10000;
+}
+
 .m-auto {
   margin: auto;
 }
