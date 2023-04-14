@@ -1,15 +1,31 @@
 {% load static %}
 <section class="flex gap-2 flex-col md:flex-row">
-    <div className="flex-1 text-lg leading-5">
-        The campaign is played by the following characters:
-        <ul className="flex flex-col gap-1 list-disc list-inside">
+    <div class="flex-1 text-lg leading-5">
+        <h3 class="text-xl md:text-2xl font-medium mb-2">The campaign is played by the following characters:</h3>
+        <div class="flex">
+            <!-- Slider main container -->
+            <swiper-container centered-slides="true" loop="true" autoplay-delay="3000" autoplay-disable-on-interaction="false" class="w-full md:w-1/4 h-44">
+            <!-- Slides -->
             {% for character in characters %}
-                <li>
-                    <a href="{% url 'characters:detail' name=character.full_name %}"
-                       className="underline font-bold">{{ character.full_name }}</a>
-                    , {{ character.race_class }}
-                </li>
+                <swiper-slide class="flex justify-center">
+                <img src="{{ character.profile_image.url }}"
+                     alt="{{ character }}-profile-image"
+                     class="max-h-44"/>
+                </swiper-slide>
             {% endfor %}
-        </ul>
+            </swiper-container>
+            <ul class="flex flex-col gap-1 list-disc list-inside z-50">
+                {% for character in characters %}
+                    <li class="capitalize">
+                        <a href="{% url 'core:home' %}" class="underline font-bold">{{ character.full_name }}</a>,
+                        {{ character.race_class_description }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </section>
+{% block extra-scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+    <script></script>
+{% endblock extra-scripts %}

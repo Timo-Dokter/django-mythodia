@@ -3,13 +3,20 @@
   --secondary: #eac18b;
   --accent: #000;
   --hairline-color: #f4d2a2;
-  --link-fg: #4b5563;
-  --link-hover-color: #1f2937;
+  --link-fg: #4c4c6d;
+  --link-hover-color: #6a81bf;
+
+  --button-fg: #111827;
+  --button-hover-bg: var(--secondary);
+  --default-button-hover-bg: #8c6747;
 
   --header-color: #1f2937;
   --header-link-color: #111827;
+  --breadcrumbs-link-fg: #4c4c6d;
+  --breadcrumbs-fg: #6a81bf;
 
   --body-bg: #fffcf2;
+  --darkened-bg: #fff9e6;
 }
 
 #user-tools a,

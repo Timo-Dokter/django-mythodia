@@ -1,0 +1,12 @@
+.disabled {
+  display: none;
+}
+
+.swiper,
+swiper-container {
+  margin: 0 !important;
+}
+
+/* .swiper-slide {
+  display: flex !important;
+} */

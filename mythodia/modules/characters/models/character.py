@@ -3,7 +3,7 @@ from django.utils.translation import gettext as _
 
 
 class Character(models.Model):
-    account = models.ForeignKey(
+    player = models.ForeignKey(
         "accounts.Account",
         on_delete=models.SET_NULL,
         null=True,
@@ -19,19 +19,28 @@ class Character(models.Model):
 
     race = models.CharField(_("Race"), max_length=256)
     character_class = models.CharField(_("Class"), max_length=256)
-    sub_class = models.CharField(_("Subclass"), max_length=256)
+    sub_class = models.CharField(_("Subclass"), max_length=256, null=True, blank=True)
+
+    profile_image = models.ImageField(
+        _("Profile image"), help_text=_("Main display image")
+    )
 
     @property
     def full_name(self):
-        if self.middle_names:
-            return (
-                f"{self.first_name} {self.middle_names} {self.infix} {self.last_name}"
-            )
-        return f"{self.first_name} {self.infix} {self.last_name}"
+        name_parts = [
+            part
+            for part in [self.first_name, self.middle_names, self.infix, self.last_name]
+            if part
+        ]
+        return "".join(name_parts)
 
     @property
     def race_class_description(self):
-        return f"{self.full_name},"
+        return (
+            f"The {self.race} {self.character_class} - {self.sub_class or ''}"
+            if self.sub_class
+            else f"The {self.race or ''} {self.character_class}"
+        )
 
-    class Meta:
-        unique_together = ["first_name", "infix"]
+    def __str__(self):
+        return self.full_name

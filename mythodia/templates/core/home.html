@@ -1,10 +1,14 @@
 {% extends "base.html" %}
+{% block extra-styles %}
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+{% endblock extra-styles %}
 {% block page_heading %}
     The universe of Mythodia
 {% endblock page_heading %}
 {% block content %}
     <div class="flex flex-col gap-8">
         {% include "components/core/home_page/world_section.html" %}
-        {% include "components/core/home_page/players_section.html" %}
+        {% include "components/core/home_page/players_section.html" with characters=characters %}
     </div>
 {% endblock content %}

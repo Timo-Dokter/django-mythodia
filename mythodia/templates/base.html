@@ -10,7 +10,10 @@
       {% endblock page_title %}
     </title>
     <link rel="icon" href="{% static 'images/dnd_favicon.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
     {% tailwind_css %}
+    {% block extra-styles %}
+    {% endblock extra-styles %}
   </head>
   <body>
     {% block image-modal %}
@@ -62,4 +65,6 @@
         modal.classList.add('hidden');
     });
   </script>
+  {% block extra-scripts %}
+  {% endblock extra-scripts %}
 </html>

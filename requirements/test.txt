@@ -1,0 +1,4 @@
+-r base.txt
+
+black==23.3.0
+djlint==1.19.17
