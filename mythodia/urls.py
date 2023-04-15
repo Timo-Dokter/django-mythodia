@@ -2,6 +2,10 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.conf import settings
 
+admin.site.site_header = "Mythodia admin"
+admin.site.site_title = "Mythodia admin portal"
+admin.site.index_title = "Mythodia admin"
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("mythodia.modules.core.urls")),

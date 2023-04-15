@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     # 3rd parties
     "tailwind",
     "corsheaders",
+    "fontawesomefree",
     # Our Apps
     "mythodia.modules.accounts",
     "mythodia.modules.core",

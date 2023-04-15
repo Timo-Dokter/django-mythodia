@@ -11,6 +11,12 @@
     </title>
     <link rel="icon" href="{% static 'images/dnd_favicon.png' %}" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}"
+          rel="stylesheet"
+          type="text/css"/>
+    <link href="{% static 'fontawesomefree/css/solid.css' %}"
+          rel="stylesheet"
+          type="text/css"/>
     {% tailwind_css %}
     {% block extra-styles %}
     {% endblock extra-styles %}
@@ -20,7 +26,7 @@
       <div id="modal" class="fixed inset-0 z-[10000] hidden cursor-pointer">
         <div class="flex justify-center items-center w-full h-full bg-gray-900 bg-opacity-50">
           <img id="modal-image"
-               class="block-enlarge max-w-full max-h-full"
+               class="block-enlarge max-w-full max-h-full p-4"
                src=""
                alt=""/>
         </div>
