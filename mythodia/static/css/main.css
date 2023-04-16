@@ -10,3 +10,7 @@ swiper-container {
 /* .swiper-slide {
   display: flex !important;
 } */
+
+#user-section:hover .absolute {
+  display: block;
+}

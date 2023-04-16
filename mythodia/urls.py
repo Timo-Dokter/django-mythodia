@@ -9,6 +9,8 @@ admin.site.index_title = "Mythodia admin"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("mythodia.modules.core.urls")),
+    path("wiki/", include("mythodia.modules.wiki.urls")),
+    path("accounts/", include("mythodia.modules.accounts.urls")),
 ]
 
 if settings.DEBUG:

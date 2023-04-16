@@ -1,0 +1,15 @@
+{% extends "wiki/base.html" %}
+{% block extra-styles %}
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+{% endblock extra-styles %}
+{% block page-heading %}
+    The universe of Mythodia
+{% endblock page-heading %}
+{% block content %}
+    <div class="flex flex-col gap-8">
+        {% include "wiki/components/home_page/world_section.html" %}
+        {% include "wiki/components/home_page/players_section.html" with characters=characters %}
+        {% include "wiki/components/home_page/link_section.html" %}
+    </div>
+{% endblock content %}

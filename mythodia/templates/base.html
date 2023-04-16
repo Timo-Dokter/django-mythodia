@@ -35,22 +35,24 @@
     {% block background-image %}
       <div class="fixed min-h-screen w-full bg-the-inner-planes-map bg-center bg-cover blur-sm z-[-10]"></div>
     {% endblock background-image %}
-    <div class="min-h-screen bg-transparent leading-normal">
-      <header class="relative bg-dark-parchment">
+    <div class="flex">
+      {% block side-nav %}
+        {% include "components/side_nav.html" %}
+      {% endblock side-nav %}
+      <div class="min-h-screen bg-transparent leading-normal max-w-full w-full">
         {% block header %}
-          {% include "components/core/header.html" %}
         {% endblock header %}
-      </header>
-      <main class="max-w-6xl min-h-120 p-4 m-auto md:my-4 h-full md:h-auto bg-light-parchment bg-opacity-90">
-        <h1 class="text-3xl md:text-4xl font-medium mb-2">
-          {% block page_heading %}
-          {% endblock page_heading %}
-        </h1>
-        {% block content %}
-        {% endblock content %}
-      </main>
-      {% block footer %}
-      {% endblock footer %}
+        <main class="max-w-6xl min-h-120 p-4 m-auto md:my-4 h-full md:h-auto bg-light-parchment bg-opacity-90">
+          <h1 class="text-3xl md:text-4xl font-medium mb-2">
+            {% block page-heading %}
+            {% endblock page-heading %}
+          </h1>
+          {% block content %}
+          {% endblock content %}
+        </main>
+        {% block footer %}
+        {% endblock footer %}
+      </div>
     </div>
   </body>
   <script lang="text/javascript">
