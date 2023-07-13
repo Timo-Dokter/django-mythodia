@@ -9,7 +9,7 @@ from .forms import *
 class AccountAdmin(admin.ModelAdmin):
     add_form = AccountCreationForm
     form = AccountChangeForm
-    list_display = ["email", "__str__", "is_staff", "is_active"]
+    list_display = ["email", "__str__", "is_dm", "is_staff", "is_active"]
     list_filter = ["is_staff", "is_active", "groups"]
     fieldsets = [
         (
@@ -18,7 +18,15 @@ class AccountAdmin(admin.ModelAdmin):
         ),
         (
             "Permissions",
-            {"fields": ("is_active", "is_staff", "groups", "user_permissions")},
+            {
+                "fields": (
+                    "is_dm",
+                    "is_active",
+                    "is_staff",
+                    "groups",
+                    "user_permissions",
+                )
+            },
         ),
     ]
     add_fieldsets = [
@@ -26,7 +34,14 @@ class AccountAdmin(admin.ModelAdmin):
             None,
             {
                 "classes": ("wide"),
-                "fields": ("email", "password1", "password2", "is_staff", "is_active"),
+                "fields": (
+                    "email",
+                    "password1",
+                    "password2",
+                    "is_dm",
+                    "is_staff",
+                    "is_active",
+                ),
             },
         ),
     ]

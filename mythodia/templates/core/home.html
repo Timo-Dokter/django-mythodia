@@ -30,6 +30,11 @@
         </a>
         A character creator where you can create a character on this website. (You will not get a pdf but you can describe your character)
       </div>
+      {% if user.is_dm %}
+        <div class="text-center mb-4 md:w-1/5">
+          <a class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all"><i class="fa-solid fa-gears pr-2"></i>DM data manager</a> This leads to a page where you can manage data for the DM.
+        </div>
+      {%endif%}
       {% if user.is_staff %}
         <div class="text-center mb-4 md:w-1/5">
           <a class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all"><i class="fa-solid fa-gears pr-2"></i>Backoffice</a> This leads to the admin panel where you can manage data.

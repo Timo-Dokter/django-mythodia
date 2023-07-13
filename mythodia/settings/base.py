@@ -26,14 +26,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # 3rd parties
-    "tailwind",
     "corsheaders",
     "fontawesomefree",
+    "import_export",
+    "tailwind",
     # Our Apps
     "mythodia.modules.accounts",
-    "mythodia.modules.core",
-    "mythodia.modules.theme",
     "mythodia.modules.characters",
+    "mythodia.modules.core",
+    "mythodia.modules.dm",
+    "mythodia.modules.theme",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

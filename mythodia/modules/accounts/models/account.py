@@ -29,6 +29,11 @@ class Account(AbstractBaseUser, PermissionsMixin):
             "Designates whether this user should be treated as active. Unselect this instead of deleting accounts."
         ),
     )
+    is_dm = models.BooleanField(
+        _("Dungeon Master"),
+        default=False,
+        help_text=_("Designates whether this user is a Dungeon Master."),
+    )
 
     date_joined = models.DateTimeField(_("Date joined"), default=timezone.now)
 
