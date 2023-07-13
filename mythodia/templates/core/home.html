@@ -1,62 +1,57 @@
 {% extends "base.html" %}
-{% block side-nav %}
-{% endblock side-nav %}
-{% block header %}
-    {% include "core/components/header.html" %}
-{% endblock header %}
 {% block page-heading %}
-    <span class="text-center block">The universe of mythodia</span>
+  <span class="text-center block">The universe of mythodia</span>
 {% endblock page-heading %}
 {% block content %}
-    <p class="text-center w-1/2 m-auto mb-4 text-lg leading-none">
-        This website is dedicated to my DnD campaign taking place in the universe of Mythodia. Here you will find a wiki containing a lot of different information on the world of mythodia. You will also find a character customizer where you can control what data of your character is shown on the wiki.
-    </p>
-    <section class="flex flex-wrap flex-col md:flex-row justify-around">
+  <p class="text-center w-1/2 m-auto mb-4 text-lg leading-none">
+    This website is dedicated to my DnD campaign taking place in the universe of Mythodia. Here you will find a wiki containing a lot of different information on the world of mythodia. You will also find a character customizer where you can control what data of your character is shown on the wiki.
+  </p>
+  <section class="flex flex-wrap flex-col md:flex-row justify-around">
+    <div class="text-center mb-4 md:w-1/5">
+      <a href="{% url 'wiki:home' %}"
+         class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
+        <i class="fa-solid fa-database pr-2"></i>
+        Wiki
+      </a>
+      Descriptions for each player character and their abilities, traits, etc.
+    </div>
+    {% if user.is_authenticated %}
+      <div class="text-center mb-4 md:w-1/5">
+        <a class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
+          <i class="fa-solid fa-user-gear pr-2"></i>
+          Character manager
+        </a>
+        Descriptions for each non-player character and their abilities, traits, etc.
+      </div>
+      <div class="text-center mb-4 md:w-1/5">
+        <a class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
+          <i class="fa-solid fa-user-plus pr-2"></i>
+          Character creator
+        </a>
+        A character creator where you can create a character on this website. (You will not get a pdf but you can describe your character)
+      </div>
+      {% if user.is_staff %}
         <div class="text-center mb-4 md:w-1/5">
-            <a href="{% url 'wiki:home' %}"
-               class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
-                <i class="fa-solid fa-database pr-2"></i>
-                Wiki
-            </a>
-            Descriptions for each player character and their abilities, traits, etc.
+          <a class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all"><i class="fa-solid fa-gears pr-2"></i>Backoffice</a> This leads to the admin panel where you can manage data.
         </div>
-        {% if user.is_authenticated %}
-            <div class="text-center mb-4 md:w-1/5">
-                <a class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
-                    <i class="fa-solid fa-user-gear pr-2"></i>
-                    Character manager
-                </a>
-                Descriptions for each non-player character and their abilities, traits, etc.
-            </div>
-            <div class="text-center mb-4 md:w-1/5">
-                <a class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
-                    <i class="fa-solid fa-user-plus pr-2"></i>
-                    Character creator
-                </a>
-                A character creator where you can create a character on this website. (You will not get a pdf but you can describe your character)
-            </div>
-            {% if user.is_staff %}
-                <div class="text-center mb-4 md:w-1/5">
-                    <a class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all"><i class="fa-solid fa-gears pr-2"></i>Backoffice</a> This leads to the admin panel where you can manage data.
-                </div>
-            {% endif %}
-        {% else %}
-            <div class="text-center mb-4 md:w-1/5">
-                <a href="{% url 'accounts:login' %}"
-                   class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
-                    <i class="fa-solid fa-user-gear pr-2"></i>
-                    Login
-                </a>
-                Login to access the charater manager and create characters
-            </div>
-            <div class="text-center mb-4 md:w-1/5">
-                <a href="{% url 'accounts:sign-up' %}"
-                   class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
-                    <i class="fa-solid fa-user-plus pr-2"></i>
-                    Sign-up
-                </a>
-                Sign-up to access the charater manager and create characters
-            </div>
-        {% endif %}
-    </section>
+      {% endif %}
+    {% else %}
+      <div class="text-center mb-4 md:w-1/5">
+        <a href="{% url 'accounts:login' %}"
+           class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
+          <i class="fa-solid fa-user-gear pr-2"></i>
+          Login
+        </a>
+        Login to access the charater manager and create characters
+      </div>
+      <div class="text-center mb-4 md:w-1/5">
+        <a href="{% url 'accounts:sign_up' %}"
+           class="block px-3 py-2 bg-dark-parchment w-fit mb-1 m-auto rounded-md text-black font-bold shadow hover:bg-light-brown hover:text-white transition-all">
+          <i class="fa-solid fa-user-plus pr-2"></i>
+          Sign-up
+        </a>
+        Sign-up to access the charater manager and create characters
+      </div>
+    {% endif %}
+  </section>
 {% endblock content %}

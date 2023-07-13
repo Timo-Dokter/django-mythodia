@@ -32,7 +32,7 @@ class Character(models.Model):
             for part in [self.first_name, self.middle_names, self.infix, self.last_name]
             if part
         ]
-        return "".join(name_parts)
+        return " ".join(name_parts)
 
     @property
     def race_class_description(self):

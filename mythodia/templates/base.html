@@ -35,12 +35,9 @@
     {% block background-image %}
       <div class="fixed min-h-screen w-full bg-the-inner-planes-map bg-center bg-cover blur-sm z-[-10]"></div>
     {% endblock background-image %}
-    <div class="flex">
-      {% block side-nav %}
-        {% include "components/side_nav.html" %}
-      {% endblock side-nav %}
-      <div class="min-h-screen bg-transparent leading-normal max-w-full w-full">
+      <div class="min-h-screen min-w-full bg-transparent leading-normal">
         {% block header %}
+        {% include 'components/header.html' %}
         {% endblock header %}
         <main class="max-w-6xl min-h-120 p-4 m-auto md:my-4 h-full md:h-auto bg-light-parchment bg-opacity-90">
           <h1 class="text-3xl md:text-4xl font-medium mb-2">
@@ -53,24 +50,23 @@
         {% block footer %}
         {% endblock footer %}
       </div>
-    </div>
   </body>
   <script lang="text/javascript">
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modal-image');
 
     document.querySelectorAll('img').forEach(img => {
-        if (img.classList.contains("block-enlarge")) {
-            return
-        }
-        img.addEventListener('click', () => {
-            modal.classList.remove('hidden');
-            modalImage.src = img.src;
-        });
+      if (img.classList.contains("block-enlarge")) {
+        return
+      }
+      img.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modalImage.src = img.src;
+      });
     });
 
     modal.addEventListener('click', () => {
-        modal.classList.add('hidden');
+      modal.classList.add('hidden');
     });
   </script>
   {% block extra-scripts %}
