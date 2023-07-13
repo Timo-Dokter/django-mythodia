@@ -6,5 +6,5 @@ from ..models import Region
 class RegionResource(resources.ModelResource):
     class Meta:
         model = Region
-        fields = ("name",)
-        export_order = ("name",)
+        fields = ("id", "name")
+        export_order = ("id", "name")

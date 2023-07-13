@@ -6,5 +6,5 @@ from ..models import Scenery
 class SceneryResource(resources.ModelResource):
     class Meta:
         model = Scenery
-        fields = ("name", "description", "regions")
-        export_order = ("name", "description", "regions")
+        fields = ("id", "name", "description", "regions")
+        export_order = ("id", "name", "description", "regions")

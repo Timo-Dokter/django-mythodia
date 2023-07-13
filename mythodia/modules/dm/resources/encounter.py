@@ -6,5 +6,5 @@ from ..models import Encounter
 class EncounterResource(resources.ModelResource):
     class Meta:
         model = Encounter
-        fields = ("name", "description", "regions")
-        export_order = ("name", "description", "regions")
+        fields = ("id", "name", "description", "regions")
+        export_order = ("id", "name", "description", "regions")
